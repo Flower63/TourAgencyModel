@@ -21,77 +21,20 @@ public interface Comparators {
     /**
      * Represents sort by price, from LOW to HIGH
      */
-    Comparator<Tour> MIN_PRICE = ((o1, o2) -> {
-        if (o1.getPrice() != o2.getPrice()) {
-            return o1.getPrice() - o2.getPrice();
-        }
-
-        if (!o1.getCountry().equals(o2.getCountry())) {
-            return o1.getCountry().compareTo(o2.getCountry());
-        }
-
-        if (!o1.getTown().equals(o2.getTown())) {
-            return o1.getTown().compareTo(o2.getTown());
-        }
-
-        return o1.getDays() - o2.getDays();
-    });
+    Comparator<Tour> MIN_PRICE = (o1, o2) -> o1.getPrice() - o2.getPrice();
 
     /**
      * Represents sort by price, from HIGH to LOW
      */
-    Comparator<Tour> MAX_PRICE = ((o2, o1) -> {
-        if (o1.getPrice() != o2.getPrice()) {
-            return o1.getPrice() - o2.getPrice();
-        }
-
-        if (!o1.getCountry().equals(o2.getCountry())) {
-            return o1.getCountry().compareTo(o2.getCountry());
-        }
-
-        if (!o1.getTown().equals(o2.getTown())) {
-            return o1.getTown().compareTo(o2.getTown());
-        }
-
-        return o1.getDays() - o2.getDays();
-    });
+    Comparator<Tour> MAX_PRICE = (o1, o2) -> o2.getPrice() - o1.getPrice();
 
     /**
      * Represents sort by days count, from FEW to MORE
      */
-    Comparator<Tour> FEWER_DAYS = ((o1, o2) -> {
-        if (o1.getDays() != o2.getDays()) {
-            return o1.getDays() - o2.getDays();
-        }
-
-        if (o1.getPrice() != o2.getPrice()) {
-            return o1.getPrice() - o2.getPrice();
-        }
-
-        if (!o1.getCountry().equals(o2.getCountry())) {
-            return o1.getCountry().compareTo(o2.getCountry());
-        }
-
-        return o1.getTown().compareTo(o2.getTown());
-    });
+    Comparator<Tour> FEWER_DAYS = (o1, o2) -> o1.getDays() - o2.getDays();
 
     /**
      * Represents sort by days count, from MORE to FEW
      */
-    Comparator<Tour> MORE_DAYS = ((o2, o1) -> {
-        if (o1.getDays() != o2.getDays()) {
-            return o1.getDays() - o2.getDays();
-        }
-
-        if (o1.getPrice() != o2.getPrice()) {
-            return o1.getPrice() - o2.getPrice();
-        }
-
-        if (!o1.getCountry().equals(o2.getCountry())) {
-            return o1.getCountry().compareTo(o2.getCountry());
-        }
-
-        return o1.getTown().compareTo(o2.getTown());
-    });
-
+    Comparator<Tour> MORE_DAYS = (o1, o2) -> o2.getDays() - o1.getDays();
 }

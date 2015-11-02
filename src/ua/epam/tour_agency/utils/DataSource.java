@@ -6,6 +6,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,51 +19,22 @@ import java.util.List;
  */
 public class DataSource {
 
-    public static List<Tour> getCruiseTours() throws JAXBException {
-        CruiseTourWrapper wrapper;
-
-        JAXBContext context = JAXBContext.newInstance(CruiseTourWrapper.class);
-
-        Unmarshaller unmarshaller = context.createUnmarshaller();
-
-        wrapper = (CruiseTourWrapper) unmarshaller.unmarshal(new File("XMLs/CruiseTours.xml"));
-
-        return (List) wrapper.getTours();
-    }
-
-    public static List<Tour> getCultureTours() throws JAXBException {
-        CultureTourWrapper wrapper;
-
-        JAXBContext context = JAXBContext.newInstance(CultureTourWrapper.class);
-
-        Unmarshaller unmarshaller = context.createUnmarshaller();
-
-        wrapper = (CultureTourWrapper) unmarshaller.unmarshal(new File("XMLs/CultureTours.xml"));
-
-        return (List) wrapper.getTours();
-    }
-
-    public static List<Tour> getShoppingTours() throws JAXBException {
-        ShoppingTourWrapper wrapper;
-
-        JAXBContext context = JAXBContext.newInstance(ShoppingTourWrapper.class);
-
-        Unmarshaller unmarshaller = context.createUnmarshaller();
-
-        wrapper = (ShoppingTourWrapper) unmarshaller.unmarshal(new File("XMLs/ShoppingTours.xml"));
-
-        return (List) wrapper.getTours();
-    }
-
-    public static List<Tour> getWellnessTours() throws JAXBException {
-        WellnessTourWrapper wrapper;
-
-        JAXBContext context = JAXBContext.newInstance(WellnessTourWrapper.class);
-
-        Unmarshaller unmarshaller = context.createUnmarshaller();
-
-        wrapper = (WellnessTourWrapper) unmarshaller.unmarshal(new File("XMLs/WellnessTours.xml"));
-
-        return (List) wrapper.getTours();
+    /**
+     * Static method to find and unmarshall tour data.
+     *
+     * It looking up for list_of_tours.xml file
+     * in XMLs directory
+     *
+     * @return list of available tours. If something goes wrong - returns empty list
+     */
+    public static List<Tour> getTours() {
+        try {
+            JAXBContext context = JAXBContext.newInstance(TourWrapper.class);
+            Unmarshaller unmarshaller = context.createUnmarshaller();
+            TourWrapper wrapper = (TourWrapper) unmarshaller.unmarshal(new File("XMLs/list_of_tours.xml"));
+            return wrapper.getTours();
+        } catch (JAXBException e) {
+            return new ArrayList<>();
+        }
     }
 }

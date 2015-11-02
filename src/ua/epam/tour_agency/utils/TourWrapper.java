@@ -1,6 +1,6 @@
 package ua.epam.tour_agency.utils;
 
-import ua.epam.tour_agency.entity.CruiseTour;
+import ua.epam.tour_agency.entity.Tour;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -9,18 +9,18 @@ import java.util.List;
 /**
  * @author Dennis
  *
- * on 11/1/2015.
+ * on 11/2/2015.
  */
 @XmlRootElement(name = "tours")
-public class CruiseTourWrapper {
-    private List<CruiseTour> tours;
+public class TourWrapper {
+    private List<Tour> tours;
 
     @XmlElement(name = "tour")
-    public List<CruiseTour> getTours() {
+    public List<Tour> getTours() {
         return tours;
     }
 
-    public void setTours(List<CruiseTour> tours) {
+    public void setTours(List<Tour> tours) {
         this.tours = tours;
     }
 }

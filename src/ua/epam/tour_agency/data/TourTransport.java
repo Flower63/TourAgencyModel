@@ -7,7 +7,7 @@ package ua.epam.tour_agency.data;
  *
  * on 10/31/2015.
  */
-public enum Transport {
+public enum TourTransport {
     PLANE,
     BUS,
     TRAIN,

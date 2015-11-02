@@ -10,6 +10,6 @@ package ua.epam.tour_agency.app;
  */
 public class Main {
     public static void main(String[] args) {
-        new AgencyModel();
+        new Agency();
     }
 }

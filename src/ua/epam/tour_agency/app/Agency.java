@@ -1,11 +1,11 @@
 package ua.epam.tour_agency.app;
 
 import ua.epam.tour_agency.data.Messages;
+import ua.epam.tour_agency.data.TourSubject;
 import ua.epam.tour_agency.entity.*;
 import ua.epam.tour_agency.data.Comparators;
 import ua.epam.tour_agency.utils.DataSource;
 
-import javax.xml.bind.JAXBException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,20 +16,9 @@ import java.util.List;
  *
  * on 10/31/2015.
  */
-public class AgencyModel {
+public class Agency {
 
-    /*
-     * Controller instance
-     */
     private Controller controller;
-
-    /*
-     * Collections of different type tours
-     */
-    private List<Tour> cruiseTours;
-    private List<Tour> cultureTours;
-    private List<Tour> shoppingTours;
-    private List<Tour> wellnessTours;
     private List<Tour> allTours;
 
     /**
@@ -39,52 +28,44 @@ public class AgencyModel {
      * and call DataSource class
      * to initialise collections of tours.
      *
-     * If exception occurs, collections initialises as empty ones
+     * After that runs main menu
      */
-    public AgencyModel() {
+    public Agency() {
         controller = new Controller();
 
         View.print(Messages.GRITTING);
 
-        try {
-            cruiseTours = DataSource.getCruiseTours();
-        } catch (JAXBException e) {
-            cruiseTours = new ArrayList<>();
-        }
-
-        try {
-            cultureTours = DataSource.getCultureTours();
-        } catch (JAXBException e) {
-            cultureTours = new ArrayList<>();
-        }
-
-        try {
-            shoppingTours = DataSource.getShoppingTours();
-        } catch (JAXBException e) {
-            shoppingTours = new ArrayList<>();
-        }
-
-        try {
-            wellnessTours = DataSource.getWellnessTours();
-        } catch (JAXBException e) {
-            wellnessTours = new ArrayList<>();
-        }
-
-        allTours = new ArrayList<>();
-
-        allTours.addAll(cruiseTours);
-        allTours.addAll(cultureTours);
-        allTours.addAll(shoppingTours);
-        allTours.addAll(wellnessTours);
+        allTours = DataSource.getTours();
 
         mainMenu();
     }
 
-    /*
+    /**
+     * Filter method thad filters all tours with specified type
+     * (e.g. CRUISE of CULTURE or so.)
+     *
+     * @param subject - specified type of tour
+     * @return list of tours, which matches given type
+     */
+    private List<Tour> filter(TourSubject subject) {
+        List<Tour> results = new ArrayList<>();
+
+        for (Tour tour : allTours) {
+            if (tour.getSubject() == subject) {
+                results.add(tour);
+            }
+        }
+
+        return results;
+    }
+
+    /**
      * Prompts user to input command in numeric format.
      *
      * Execute command for context menu if valid
      * or outputs warning message otherwise
+     *
+     * @param tours - list of tours after filtration
      */
     private void executeContextMenuCommand(List<Tour> tours) {
 
@@ -116,7 +97,7 @@ public class AgencyModel {
         }
     }
 
-    /*
+    /**
      * Prompts user to input command in numeric format.
      *
      * Execute command for main menu if valid
@@ -128,16 +109,16 @@ public class AgencyModel {
 
         switch (command) {
             case 1:
-                contextMenu(cruiseTours);
+                contextMenu(filter(TourSubject.CRUISE));
                 break;
             case 2:
-                contextMenu(cultureTours);
+                contextMenu(filter(TourSubject.CULTURE));
                 break;
             case 3:
-                contextMenu(shoppingTours);
+                contextMenu(filter(TourSubject.SHOPPING));
                 break;
             case 4:
-                contextMenu(wellnessTours);
+                contextMenu(filter(TourSubject.WELLNESS));
                 break;
             case 5:
                 contextMenu(allTours);
@@ -148,7 +129,7 @@ public class AgencyModel {
         }
     }
 
-    /*
+    /**
      * Shows main menu
      */
     private void mainMenu() {
@@ -157,7 +138,7 @@ public class AgencyModel {
         executeMainMenuCommand();
     }
 
-    /*
+    /**
      * Shows context menu
      */
     private void contextMenu(List<Tour> tours) {

@@ -33,6 +33,7 @@ public interface View {
     static void printTour(Tour tour) {
         print(Messages.DIV);
         print(tour.getCountry() + " " + tour.getTown() + ", " + tour.getDays() + " days.");
+        print("Type: " + tour.getSubject());
         print("from " + tour.getStartDate() + " to " + tour.getEndDate());
         print("Transport: " + tour.getTransport() + " Food: " + tour.getFood());
         print("Price: " + tour.getPrice() + " $");
