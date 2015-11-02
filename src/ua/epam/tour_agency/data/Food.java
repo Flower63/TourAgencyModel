@@ -1,4 +1,4 @@
-package ua.epam.tour_agency.entity;
+package ua.epam.tour_agency.data;
 
 /**
  * Enumeration to hold food types

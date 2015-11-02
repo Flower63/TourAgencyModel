@@ -2,7 +2,7 @@
  * Interface to hold constants
  */
 
-package ua.epam.tour_agency.utils;
+package ua.epam.tour_agency.data;
 
 import ua.epam.tour_agency.entity.Tour;
 

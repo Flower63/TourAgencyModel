@@ -1,5 +1,8 @@
 package ua.epam.tour_agency.entity;
 
+import ua.epam.tour_agency.data.Food;
+import ua.epam.tour_agency.data.Transport;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 

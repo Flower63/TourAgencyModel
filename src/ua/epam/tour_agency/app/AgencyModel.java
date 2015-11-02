@@ -2,12 +2,11 @@ package ua.epam.tour_agency.app;
 
 import ua.epam.tour_agency.data.Messages;
 import ua.epam.tour_agency.entity.*;
-import ua.epam.tour_agency.utils.Comparators;
+import ua.epam.tour_agency.data.Comparators;
 import ua.epam.tour_agency.utils.DataSource;
 
 import javax.xml.bind.JAXBException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -24,6 +23,9 @@ public class AgencyModel {
      */
     private Controller controller;
 
+    /*
+     * Collections of different type tours
+     */
     private List<Tour> cruiseTours;
     private List<Tour> cultureTours;
     private List<Tour> shoppingTours;
@@ -79,46 +81,10 @@ public class AgencyModel {
     }
 
     /*
-     * Method to get instances of CruiseTour class
-     * (all cruise tours)
-     */
-    private List<Tour> getCruiseTours() {
-        return cruiseTours;
-    }
-
-    /*
-     * Method to get instances of CultureTour class
-     * (all culture tours)
-     */
-    private List<Tour> getCultureTours() {
-        return cultureTours;
-    }
-
-    /*
-     * Method to get instances of ShoppingTour class
-     * (all shopping tours)
-     */
-    private List<Tour> getShoppingTours() {
-        return shoppingTours;
-    }
-
-    /*
-     * Method to get instances of WellnessTour class
-     * (all wellness tours)
-     */
-    private List<Tour> getWellnessTours() {
-        return wellnessTours;
-    }
-
-    /*
-     * Method to get all available tours
-     */
-    private List<Tour> getAll() {
-        return allTours;
-    }
-
-    /*
-     * Switch to deal with user command in context menu
+     * Prompts user to input command in numeric format.
+     *
+     * Execute command for context menu if valid
+     * or outputs warning message otherwise
      */
     private void executeContextMenuCommand(List<Tour> tours) {
 
@@ -151,7 +117,10 @@ public class AgencyModel {
     }
 
     /*
-     * Switch to deal with user command in main menu
+     * Prompts user to input command in numeric format.
+     *
+     * Execute command for main menu if valid
+     * or outputs warning message otherwise
      */
     private void executeMainMenuCommand() {
 
@@ -159,19 +128,19 @@ public class AgencyModel {
 
         switch (command) {
             case 1:
-                contextMenu(getCruiseTours());
+                contextMenu(cruiseTours);
                 break;
             case 2:
-                contextMenu(getCultureTours());
+                contextMenu(cultureTours);
                 break;
             case 3:
-                contextMenu(getShoppingTours());
+                contextMenu(shoppingTours);
                 break;
             case 4:
-                contextMenu(getWellnessTours());
+                contextMenu(wellnessTours);
                 break;
             case 5:
-                contextMenu(getAll());
+                contextMenu(allTours);
                 break;
             default:
                 View.print(Messages.COMMAND_NOT_RECOGNIZED);
@@ -180,7 +149,7 @@ public class AgencyModel {
     }
 
     /*
-     * Shows main menu and prompts user to input command in numeric format
+     * Shows main menu
      */
     private void mainMenu() {
         View.print(Messages.START_MENU);
@@ -189,7 +158,7 @@ public class AgencyModel {
     }
 
     /*
-     * Shows main menu and prompts user to input command in numeric format
+     * Shows context menu
      */
     private void contextMenu(List<Tour> tours) {
         View.printTours(tours);

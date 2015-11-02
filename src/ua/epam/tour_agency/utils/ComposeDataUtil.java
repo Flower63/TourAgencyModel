@@ -1,5 +1,7 @@
 package ua.epam.tour_agency.utils;
 
+import ua.epam.tour_agency.data.Food;
+import ua.epam.tour_agency.data.Transport;
 import ua.epam.tour_agency.entity.*;
 
 import javax.xml.bind.JAXBContext;

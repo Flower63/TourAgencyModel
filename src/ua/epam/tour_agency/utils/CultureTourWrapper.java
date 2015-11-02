@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
 /**
- * Created by Dennis
+ * @author Dennis
  *
  * on 11/1/2015.
  */
