@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tours>
+    <tour xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tour">
+        <country>India</country>
+        <endDate>21.12.15</endDate>
+        <food>ALL_INCLUSIVE</food>
+        <price>1100</price>
+        <startDate>12.12.15</startDate>
+        <town>Kolkata</town>
+        <transport>TRAIN</transport>
+    </tour>
+    <tour xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tour">
+        <country>India</country>
+        <endDate>27.12.15</endDate>
+        <food>ALL_INCLUSIVE</food>
+        <price>3000</price>
+        <startDate>12.12.15</startDate>
+        <town>Mumbai</town>
+        <transport>PLANE</transport>
+    </tour>
+    <tour xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tour">
+        <country>Thailand</country>
+        <endDate>23.12.15</endDate>
+        <food>NONE</food>
+        <price>1200</price>
+        <startDate>17.12.15</startDate>
+        <town>Rayong</town>
+        <transport>PLANE</transport>
+    </tour>
+    <tour xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tour">
+        <country>France</country>
+        <endDate>25.12.15</endDate>
+        <food>ALL_INCLUSIVE</food>
+        <price>1500</price>
+        <startDate>12.12.15</startDate>
+        <town>Le Mans</town>
+        <transport>BUS</transport>
+    </tour>
+    <tour xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="tour">
+        <country>India</country>
+        <endDate>17.12.15</endDate>
+        <food>BREAKFAST</food>
+        <price>1700</price>
+        <startDate>07.12.15</startDate>
+        <town>Nagpur</town>
+        <transport>SHIP</transport>
+    </tour>
+</tours>

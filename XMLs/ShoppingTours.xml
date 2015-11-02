@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<tours>
+    <tour>
+        <country>USA</country>
+        <endDate>18.12.15</endDate>
+        <food>LUNCH</food>
+        <price>1500</price>
+        <startDate>11.12.15</startDate>
+        <town>New York</town>
+        <transport>PLANE</transport>
+    </tour>
+    <tour>
+        <country>Italy</country>
+        <endDate>25.11.15</endDate>
+        <food>LUNCH</food>
+        <price>700</price>
+        <startDate>20.11.15</startDate>
+        <town>Roma</town>
+        <transport>BUS</transport>
+    </tour>
+    <tour>
+        <country>France</country>
+        <endDate>19.12.15</endDate>
+        <food>ALL_INCLUSIVE</food>
+        <price>900</price>
+        <startDate>15.12.15</startDate>
+        <town>Paris</town>
+        <transport>PLANE</transport>
+    </tour>
+    <tour>
+        <country>USA</country>
+        <endDate>10.11.15</endDate>
+        <food>BREAKFAST</food>
+        <price>1200</price>
+        <startDate>05.11.15</startDate>
+        <town>Chicago</town>
+        <transport>PLANE</transport>
+    </tour>
+    <tour>
+        <country>USA</country>
+        <endDate>05.12.15</endDate>
+        <food>ALL_INCLUSIVE</food>
+        <price>1700</price>
+        <startDate>01.12.15</startDate>
+        <town>Los Angeles</town>
+        <transport>PLANE</transport>
+    </tour>
+</tours>
