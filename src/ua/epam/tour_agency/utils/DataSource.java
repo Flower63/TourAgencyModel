@@ -27,7 +27,7 @@ public class DataSource {
      *
      * @return list of available tours. If something goes wrong - returns empty list
      */
-    public static List<Tour> getTours() {
+    public List<Tour> getTours() {
         try {
             JAXBContext context = JAXBContext.newInstance(TourWrapper.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();

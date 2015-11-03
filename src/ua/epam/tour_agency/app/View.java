@@ -14,14 +14,14 @@ import java.util.List;
  *
  * on 10/31/2015.
  */
-public interface View {
+public class View {
 
     /**
      * Prints single message
      *
      * @param message - input message as a String
      */
-    static void print(String message) {
+    public static void print(String message) {
         System.out.println(message);
     }
 
@@ -30,7 +30,7 @@ public interface View {
      *
      * @param tour - input Tour object
      */
-    static void printTour(Tour tour) {
+    public static void printTour(Tour tour) {
         print(Messages.DIV);
         print(tour.getCountry() + " " + tour.getTown() + ", " + tour.getDays() + " days.");
         print("Type: " + tour.getSubject());
@@ -47,7 +47,7 @@ public interface View {
      *
      * @param tours - input list of tours
      */
-    static void printTours(List<Tour> tours) {
+    public static void printTours(List<Tour> tours) {
         for (Tour tour : tours) {
             printTour(tour);
         }

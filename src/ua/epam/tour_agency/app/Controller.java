@@ -31,7 +31,7 @@ public class Controller {
      */
     public int getCommand() {
         String input;
-        int command = -1;
+        int command = 0;
         boolean isNumber = false;
 
         try {

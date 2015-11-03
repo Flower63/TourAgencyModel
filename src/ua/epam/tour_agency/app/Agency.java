@@ -35,7 +35,7 @@ public class Agency {
 
         View.print(Messages.GRITTING);
 
-        allTours = DataSource.getTours();
+        allTours = new DataSource().getTours();
 
         mainMenu();
     }
