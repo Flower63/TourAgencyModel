@@ -20,7 +20,7 @@ import java.util.List;
 public class DataSource {
 
     /**
-     * Static method to find and unmarshall tour data.
+     * Method to find and unmarshall tour data.
      *
      * It looking up for list_of_tours.xml file
      * in XMLs directory
