@@ -7,6 +7,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 import java.util.List;
 
 /**
+ * Little class to wrap list of tours.
+ * It's used for marshal - unmarshall purposes
+ *
  * @author Dennis
  *
  * on 11/2/2015.

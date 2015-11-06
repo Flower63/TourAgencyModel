@@ -1,12 +1,11 @@
 package ua.epam.tour_agency.app;
 
-import ua.epam.tour_agency.data.Messages;
 import ua.epam.tour_agency.data.TourSubject;
 import ua.epam.tour_agency.entity.*;
-import ua.epam.tour_agency.data.Comparators;
 import ua.epam.tour_agency.utils.DataSource;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -18,26 +17,19 @@ import java.util.List;
  */
 public class Agency {
 
-    private Controller controller;
+    /**
+     * List of all tours
+     */
     private List<Tour> allTours;
 
     /**
      * Constructor
      *
-     * Here we initialise controller instance,
-     * and call DataSource class
+     * Here we call getSource() method of DataSource object
      * to initialise collections of tours.
-     *
-     * After that runs main menu
      */
-    public Agency() {
-        controller = new Controller();
-
-        View.print(Messages.GRITTING);
-
-        allTours = new DataSource().getTours();
-
-        mainMenu();
+    public Agency(DataSource source) {
+        allTours = source.getTours();
     }
 
     /**
@@ -47,7 +39,7 @@ public class Agency {
      * @param subject - specified type of tour
      * @return list of tours, which matches given type
      */
-    private List<Tour> filter(TourSubject subject) {
+    public List<Tour> filter(TourSubject subject) {
         List<Tour> results = new ArrayList<>();
 
         for (Tour tour : allTours) {
@@ -60,91 +52,21 @@ public class Agency {
     }
 
     /**
-     * Prompts user to input command in numeric format.
+     * Method to get entire list of existing tours without filtration
      *
-     * Execute command for context menu if valid
-     * or outputs warning message otherwise
-     *
-     * @param tours - list of tours after filtration
+     * @return - List of all available tours
      */
-    private void executeContextMenuCommand(List<Tour> tours) {
-
-        int command = controller.getCommand();
-
-        switch (command) {
-            case 1:
-                tours.sort(Comparators.MAX_PRICE);
-                contextMenu(tours);
-                break;
-            case 2:
-                tours.sort(Comparators.MIN_PRICE);
-                contextMenu(tours);
-                break;
-            case 3:
-                tours.sort(Comparators.MORE_DAYS);
-                contextMenu(tours);
-                break;
-            case 4:
-                tours.sort(Comparators.FEWER_DAYS);
-                contextMenu(tours);
-                break;
-            case 0:
-                mainMenu();
-                break;
-            default:
-                View.print(Messages.COMMAND_NOT_RECOGNIZED);
-                executeContextMenuCommand(tours);
-        }
+    public List<Tour> getAllTours() {
+        return allTours;
     }
 
     /**
-     * Prompts user to input command in numeric format.
+     * Sorts given list of tours with specified comparator
      *
-     * Execute command for main menu if valid
-     * or outputs warning message otherwise
+     * @param tours - List of tours to sort
+     * @param comparator - Sorting clause
      */
-    private void executeMainMenuCommand() {
-
-        int command = controller.getCommand();
-
-        switch (command) {
-            case 1:
-                contextMenu(filter(TourSubject.CRUISE));
-                break;
-            case 2:
-                contextMenu(filter(TourSubject.CULTURE));
-                break;
-            case 3:
-                contextMenu(filter(TourSubject.SHOPPING));
-                break;
-            case 4:
-                contextMenu(filter(TourSubject.WELLNESS));
-                break;
-            case 5:
-                contextMenu(allTours);
-                break;
-            default:
-                View.print(Messages.COMMAND_NOT_RECOGNIZED);
-                executeMainMenuCommand();
-        }
-    }
-
-    /**
-     * Shows main menu
-     */
-    private void mainMenu() {
-        View.print(Messages.START_MENU);
-
-        executeMainMenuCommand();
-    }
-
-    /**
-     * Shows context menu
-     */
-    private void contextMenu(List<Tour> tours) {
-        View.printTours(tours);
-        View.print(Messages.FOOTER);
-
-        executeContextMenuCommand(tours);
+    public void sort(List<Tour> tours, Comparator<Tour> comparator) {
+        tours.sort(comparator);
     }
 }

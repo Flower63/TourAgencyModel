@@ -1,5 +1,8 @@
 package ua.epam.tour_agency.app;
 
+import ua.epam.tour_agency.utils.DataSource;
+import ua.epam.tour_agency.utils.DataSourceXml;
+
 /**
  * This class contains main method
  * as entry point to application
@@ -10,6 +13,9 @@ package ua.epam.tour_agency.app;
  */
 public class Main {
     public static void main(String[] args) {
-        new Agency();
+        DataSource source = new DataSourceXml();
+        Agency agency = new Agency(source);
+        Controller controller = new Controller(agency);
+        controller.start();
     }
 }
